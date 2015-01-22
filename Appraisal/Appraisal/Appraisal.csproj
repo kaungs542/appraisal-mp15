@@ -90,6 +90,7 @@
     <Content Include="Image\word.png" />
     <Content Include="ImportExportStaffList.aspx" />
     <Content Include="LoginPage.aspx" />
+    <Content Include="ManageFunction.aspx" />
     <Content Include="ManageQuestionsAdd.aspx" />
     <Content Include="ManageQuestions.aspx" />
     <Content Include="ManageSystem.aspx" />
@@ -480,6 +481,13 @@
     </Compile>
     <Compile Include="LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageFunction.aspx.cs">
+      <DependentUpon>ManageFunction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageFunction.aspx.designer.cs">
+      <DependentUpon>ManageFunction.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageQuestionsAdd.aspx.cs">
       <DependentUpon>ManageQuestionsAdd.aspx</DependentUpon>
