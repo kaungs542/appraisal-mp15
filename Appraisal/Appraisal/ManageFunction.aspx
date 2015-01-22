@@ -34,11 +34,7 @@
                         <asp:Label ID="lblName" runat="server" Text="Name" CssClass="label"></asp:Label>
                     </td>
                     <td>
-                        <b>
-                            <asp:TextBox ID="NameTbx" runat="server" CssClass="standardManage" onkeypress="return check(event)"
-                                onMouseDown="return DisableControlKey(event)"></asp:TextBox>
-                        </b>
-                    </td>
+                        &nbsp;</td>
                     <td>
                         <asp:RequiredFieldValidator ID="RequireValidatorName" runat="server" ControlToValidate="NameTbx"
                             Display="Dynamic" ErrorMessage="Required" ForeColor="Red" EnableTheming="True"></asp:RequiredFieldValidator>
