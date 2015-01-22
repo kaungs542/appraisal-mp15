@@ -4119,7 +4119,7 @@ namespace Appraisal.Class
                 myconn.Close();
             }
             return listofquestion;
-        }
+        }              
 
         public static ArrayList GetAllSection()
         {
@@ -4235,8 +4235,9 @@ namespace Appraisal.Class
                 myconn.Open();
                 comm.Connection = myconn;
 
-                comm.CommandText = "Update StaffInfo set Section=@sect, Functions=@funct, Role=@role where UserID=@uid";
+                comm.CommandText = "Update StaffInfo set Designation=@design, Section=@sect, Functions=@funct, Role=@role where UserID=@uid";
                 comm.Parameters.AddWithValue("@uid", stf.Uid);
+                comm.Parameters.AddWithValue("@design", stf.Designation);
                 comm.Parameters.AddWithValue("@sect", stf.Section);
                 comm.Parameters.AddWithValue("@funct", stf.Function);
                 comm.Parameters.AddWithValue("@role", stf.Role);
