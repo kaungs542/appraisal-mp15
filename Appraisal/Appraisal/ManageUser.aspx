@@ -137,7 +137,8 @@
                                 <asp:Label ID="lblDesignationId" CssClass="label" runat="server" Text="Designation:"></asp:Label>
                             </td>
                             <td>
-                                <asp:Label ID="lblStaffDesignation" CssClass="label" runat="server"></asp:Label>
+                                <asp:TextBox ID="tbxStaffDesignation" runat="server" CssClass="standardManage">
+                                </asp:TextBox>
                             </td>
                             <td>
                                 &nbsp;

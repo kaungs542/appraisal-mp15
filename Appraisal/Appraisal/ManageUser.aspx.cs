@@ -202,7 +202,7 @@ namespace Appraisal
                             sect = "ALL";
                         }
                         string name = lblStaffName.Text;
-                        string designation = lblStaffDesignation.Text;
+                        string designation = tbxStaffDesignation.Text;
                         string function = ddlFunction.Text;
                         string role = ddlRole.Text;
                         string uid = lblUid.Text;
@@ -267,7 +267,7 @@ namespace Appraisal
                 if (listofSection.Count != 0 && listofFunction.Count != 0 && listofRole.Count != 0)
                 {
                     lblStaffName.Text = name;
-                    lblStaffDesignation.Text = designation;
+                    tbxStaffDesignation.Text = designation;
                     lblUid.Text = uid;
                     listSection.DataSource = listofSection;
                     listSection.DataBind();
@@ -334,7 +334,7 @@ namespace Appraisal
                 if (listofSection.Count != 0 && listofFunction.Count != 0 && listofRole.Count != 0)
                 {
                     lblStaffName.Text = name;
-                    lblStaffDesignation.Text = designation;
+                    tbxStaffDesignation.Text = designation;
                     lblUid.Text = uid;
                     listSection.DataSource = listofSection;
                     listSection.DataBind();
