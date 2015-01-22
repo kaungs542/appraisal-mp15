@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Caching;
 using System.Web.Security;
@@ -38,7 +40,7 @@ namespace Appraisal
         {
             Debug.WriteLine("Cache item callback: " + DateTime.Now.ToString());
 
-            HitPage();
+            //HitPage();
 
             // Do the service works
 
@@ -56,7 +58,34 @@ namespace Appraisal
 
         private void DoWork()
         {
+            Debug.WriteLine("Begin DoWork...");
+            Debug.WriteLine("Running as: " +
+                  WindowsIdentity.GetCurrent().Name);
 
+            DoSomeFileWritingStuff();
+            
+            Debug.WriteLine("End DoWork...");
+        }
+
+        private void DoSomeFileWritingStuff()
+        {
+            Debug.WriteLine("Writing to file...");
+
+            try
+            {
+                using (StreamWriter writer =
+                 new StreamWriter(@"c:\a\Cachecallback.txt", true))
+                {
+                    writer.WriteLine("Cache Callback: {0}", DateTime.Now);
+                    writer.Close();
+                }
+            }
+            catch (Exception x)
+            {
+                Debug.WriteLine(x);
+            }
+
+            Debug.WriteLine("File write successful");
         }
 		
 		protected void Session_Start(object sender, EventArgs e) 
