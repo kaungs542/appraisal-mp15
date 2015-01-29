@@ -30,6 +30,11 @@ namespace Appraisal
             {
                 ViewAppraisalChartLink.Style.Add("color", "Purple");
             }
+            if (Session["ViewGraphLink"] != null)
+            {
+                ViewGraphLink.Style.Add("color", "Purple");
+            }
+
 
             #endregion
         }
@@ -90,11 +95,15 @@ namespace Appraisal
                             {
                                 ViewAppraisalChart.Text = "To view peer evaluation chart, click ";
                                 ViewAppraisalChartLink.Visible = true;
+                                ViewGraph.Text = "To view section chart based on each question, click ";
+                                ViewGraphLink.Visible = true;
                             }
                             else
                             {
                                 ViewAppraisalChart.Text = "No chart is <b>found<b> ";
                                 ViewAppraisalChartLink.Visible = false;
+                                ViewGraph.Text = "No chart is <b>found<b> ";
+                                ViewGraphLink.Visible = false;                                
                             }
                         }
                         else
@@ -207,6 +216,13 @@ namespace Appraisal
             ViewAppraisalChartLink.Style.Add("color", "Purple");
             Session["ViewAppraisalChartLink"] = true;
             Response.Redirect("~/ViewHistoryChart.aspx");
+        }
+
+        protected void ViewGraphLink_Click(object sender, EventArgs e)
+        {
+            ViewGraphLink.Style.Add("color", "Purple");
+            Session["ViewGraphLink"] = true;
+            Response.Redirect("~/ViewGraph.aspx");
         }
     }
 }

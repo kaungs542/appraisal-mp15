@@ -44,6 +44,12 @@
                             <asp:LinkButton ID="ViewAppraisalChartLink" runat="server" CssClass="hereLink" OnClick="ViewAppraisalChartLink_Click">here</asp:LinkButton>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="ViewGraph" runat="server" CssClass="label"></asp:Label>
+                            <asp:LinkButton ID="ViewGraphLink" runat="server" CssClass="hereLink" OnClick="ViewGraphLink_Click">here</asp:LinkButton>
+                        </td>
+                    </tr>
                 </table>
             </div>
         </asp:Panel>

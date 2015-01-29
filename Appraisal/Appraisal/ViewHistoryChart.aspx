@@ -180,33 +180,8 @@
                     </td>
                 </tr>
             </table>
-            <br />
-        
-            <br />
-            <div align="center">
-                <table>
-                    <tr>
-                        <td align="left">
-                            <b>Peer Evaluation Chart</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Chart ID="Chart2" runat="server" AntiAliasing="Graphics" BackColor="Transparent">
-                                <Series>
-                                    <asp:Series Name="Series1">
-                                    </asp:Series>
-                                </Series>
-                                <ChartAreas>
-                                    <asp:ChartArea Name="ChartArea1">
-                                    </asp:ChartArea>
-                                </ChartAreas>
-                            </asp:Chart>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-                        <br />
+            <br />       
+            
         </asp:View>
         <asp:View ID="View1" runat="server">
             <br />
