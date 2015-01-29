@@ -423,6 +423,7 @@
     <Content Include="tiny_mce\utils\validate.js" />
     <Content Include="ViewAppraisal.aspx" />
     <Content Include="ViewAppraisalAllHistory.aspx" />
+    <Content Include="ViewGraph.aspx" />
     <Content Include="ViewHistoryChart.aspx" />
     <Content Include="ViewNotCompletedAppraisal.aspx" />
     <Content Include="WebForm1.aspx" />
@@ -580,6 +581,13 @@
     </Compile>
     <Compile Include="ViewAppraisalAllHistory.aspx.designer.cs">
       <DependentUpon>ViewAppraisalAllHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewGraph.aspx.cs">
+      <DependentUpon>ViewGraph.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewGraph.aspx.designer.cs">
+      <DependentUpon>ViewGraph.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewHistoryChart.aspx.cs">
       <DependentUpon>ViewHistoryChart.aspx</DependentUpon>

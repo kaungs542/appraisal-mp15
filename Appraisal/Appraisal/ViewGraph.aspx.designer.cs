@@ -10,114 +10,105 @@
 namespace Appraisal {
     
     
-    public partial class Staffmain {
+    public partial class ViewGraph {
         
         /// <summary>
-        /// DefaultPanel control.
+        /// Question control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel DefaultPanel;
+        protected global::System.Web.UI.WebControls.Panel Question;
         
         /// <summary>
-        /// SubmitAppraisalLbl control.
+        /// lblSelectQuestion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SubmitAppraisalLbl;
+        protected global::System.Web.UI.WebControls.Label lblSelectQuestion;
         
         /// <summary>
-        /// SubmitLink control.
+        /// ddlSelectQuestion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton SubmitLink;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSelectQuestion;
         
         /// <summary>
-        /// ViewAppraisalLbl control.
+        /// Display control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ViewAppraisalLbl;
+        protected global::System.Web.UI.WebControls.Button Display;
         
         /// <summary>
-        /// ViewAppraisalLink control.
+        /// MultiView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton ViewAppraisalLink;
+        protected global::System.Web.UI.WebControls.MultiView MultiView1;
         
         /// <summary>
-        /// ManageAppraisalPanel control.
+        /// View2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel ManageAppraisalPanel;
+        protected global::System.Web.UI.WebControls.View View2;
         
         /// <summary>
-        /// ViewIndividualAllLbl control.
+        /// Chart1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ViewIndividualAllLbl;
+        protected global::System.Web.UI.DataVisualization.Charting.Chart Chart1;
         
         /// <summary>
-        /// ViewIndividualAllLink control.
+        /// lbllegendHistory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton ViewIndividualAllLink;
+        protected global::System.Web.UI.WebControls.Label lbllegendHistory;
         
         /// <summary>
-        /// ViewAppraisalChart control.
+        /// View1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ViewAppraisalChart;
+        protected global::System.Web.UI.WebControls.View View1;
         
         /// <summary>
-        /// ViewAppraisalChartLink control.
+        /// lbDisplay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton ViewAppraisalChartLink;
+        protected global::System.Web.UI.WebControls.Label lbDisplay;
         
         /// <summary>
-        /// ViewGraph control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ViewGraph;
-        
-        /// <summary>
-        /// ViewGraphLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton ViewGraphLink;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
     }
 }
