@@ -75,7 +75,7 @@
                         <td>
                             <asp:Chart ID="Chart1" runat="server" AntiAliasing="Graphics" BackColor="Transparent">
                                 <Series>
-                                    <asp:Series Name="Series1">
+                                    <asp:Series Name="Series1" ChartType="Line">
                                     </asp:Series>
                                 </Series>
                                 <ChartAreas>

@@ -497,6 +497,11 @@ namespace Appraisal
                 if (display == true)
                 {
                     Chart1.Visible = true;
+                    foreach (Series cs in Chart1.Series) 
+                    { 
+                        cs.ChartType = SeriesChartType.Line;
+                        cs.IsValueShownAsLabel = true;
+                    }
                     DataTableReader datareader = table.CreateDataReader();
                     Chart1.DataBindCrossTable(datareader, "FunctionGroup", "Date", "AverageGrading", "");
                     Chart1.Legends.Add("Legend");
