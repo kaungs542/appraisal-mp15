@@ -1,11 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Appraisal.Class;
+using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Security.Principal;
+using System.Threading;
+using System.Collections;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Security.Principal;
 using System.Web;
+using System.Web.Mail;
 using System.Web.Caching;
 using System.Web.Security;
 using System.Web.SessionState;
@@ -18,33 +24,39 @@ namespace Appraisal
 
         private const string DummyCacheItemKey = "GagaGuguGigi";
 
+        private System.ComponentModel.IContainer components = null;
+
+        public Global()
+           {
+               InitializeComponent();
+           }
+
         protected void Application_Start(Object sender, EventArgs e)
         {
             RegisterCacheEntry();
         }
 
-        private bool RegisterCacheEntry()
+        private void RegisterCacheEntry()
         {
-            if (null != HttpContext.Current.Cache[DummyCacheItemKey]) return false;
+            if (null != HttpContext.Current.Cache[DummyCacheItemKey]) return;
 
             HttpContext.Current.Cache.Add(DummyCacheItemKey, "Test", null,
                 DateTime.MaxValue, TimeSpan.FromMinutes(1),
-                CacheItemPriority.Normal,
+                CacheItemPriority.NotRemovable,
                 new CacheItemRemovedCallback(CacheItemRemovedCallback));
 
-            return true;
+            //return true;
         }
 
         public void CacheItemRemovedCallback(string key,
             object value, CacheItemRemovedReason reason)
         {
             Debug.WriteLine("Cache item callback: " + DateTime.Now.ToString());
-
-            //HitPage();
-
-            // Do the service works
-
             DoWork();
+            
+
+            DoWork1();
+            HitPage();
         }
 
         private const string DummyPageUrl =
@@ -65,6 +77,24 @@ namespace Appraisal
             DoSomeFileWritingStuff();
             
             Debug.WriteLine("End DoWork...");
+        }
+            
+
+        private void DoWork1()
+        {
+            Systemtime st = dbmanager.GetSystemTime();
+            DateTime today = DateTime.Today;
+            int result = 0;
+            if (st != null)
+            {
+                TimeSpan span = st.Enddate.Subtract(today);
+                result = (int)span.Days;
+
+                if ((result == 2) || (result == 7))
+                {
+                    dbmanager.SendEmailToNotCompleted();
+                }
+            }
         }
 
         private void DoSomeFileWritingStuff()
@@ -125,6 +155,12 @@ namespace Appraisal
 		protected void Application_End(object sender, EventArgs e) 
 		{
 
-		}
-	}
+        }
+
+        private void InitializeComponent()
+          {
+              this.components = new System.ComponentModel.Container();
+          }
+
+    }
 }
