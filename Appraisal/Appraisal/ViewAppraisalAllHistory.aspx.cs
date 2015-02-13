@@ -11,6 +11,12 @@ using System.IO;
 using System.Globalization;
 using System.Web.UI.DataVisualization.Charting;
 using System.Text;
+using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
+using System.Web.Security;
+using iTextSharp.text.html;
+
 
 namespace Appraisal
 {
@@ -176,7 +182,13 @@ namespace Appraisal
                 Session["ListofQuestion"] = listofquestion;
                 ViewState["HistoryGrid"] = dt;
                 ViewAllHistory.DataSource = dt;
+                
+          
+                
                 ViewAllHistory.DataBind();
+
+               
+
                 BindInsideGradeGrid();
                 LegendMessage();
 
@@ -223,8 +235,11 @@ namespace Appraisal
                 }
                 dt2.Rows.Add(dr2);
                 GridView gv = (GridView)ViewAllHistory.Rows[indexgrid].FindControl("GridView1");
+              //  GridView gv3 = (GridView)ViewAllHistory2.Rows[indexgrid].FindControl("GridView2");
                 gv.DataSource = dt2;
+              //  gv3.DataSource = dt2;
                 gv.DataBind();
+               // gv3.DataBind();
                 Session["DataTableInside"] = dt2;
                 indexgrid++;
             }
@@ -279,7 +294,9 @@ namespace Appraisal
                 ViewState["HistoryGrid"] = dt;
                 Session["ListofQuestion"] = listofquestion;
                 ViewAllHistory.DataSource = dt;
+            
                 ViewAllHistory.DataBind();
+               
                 BindInsideGradeGrid();
                 LegendMessage();
                 MultiView1.ActiveViewIndex = 0;
@@ -329,7 +346,9 @@ namespace Appraisal
                 ViewState["HistoryGrid"] = dt;
                 Session["ListofQuestion"] = listofquestion;
                 ViewAllHistory.DataSource = dt;
+              
                 ViewAllHistory.DataBind();
+            
                 BindInsideGradeGrid();
                 LegendMessage();
                 MultiView1.ActiveViewIndex = 0;
@@ -390,7 +409,9 @@ namespace Appraisal
                 ViewState["HistoryGrid"] = dt;
                 Session["ListofQuestion"] = listofquestion;
                 ViewAllHistory.DataSource = dt;
+
                 ViewAllHistory.DataBind();
+              
                 BindInsideGradeGrid();
                 LegendMessage();
                 MultiView1.ActiveViewIndex = 0;
@@ -441,7 +462,9 @@ namespace Appraisal
                     ViewState["HistoryGrid"] = dt;
                     Session["ListofQuestion"] = listofquestion;
                     ViewAllHistory.DataSource = dt;
+              
                     ViewAllHistory.DataBind();
+               
                     BindInsideGradeGrid();
                     LegendMessage();
                     MultiView1.ActiveViewIndex = 0;
@@ -1495,10 +1518,10 @@ namespace Appraisal
                     control.Controls.Remove(c);
                     control.Controls.AddAt(i, new LiteralControl((c as HyperLink).Text));
                 }
-                else if (c is Image)
+                else if (c is System.Web.UI.WebControls.Image)
                 {
                     control.Controls.Remove(c);
-                    control.Controls.AddAt(i, new LiteralControl((c as Image).AlternateText));
+                    control.Controls.AddAt(i, new LiteralControl((c as System.Web.UI.WebControls.Image).AlternateText));
                 }
                 else if (c is DropDownList)
                 {
@@ -2396,8 +2419,194 @@ namespace Appraisal
                 }
             }
         }
+/*
+        protected void PdfBtn_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.ContentType = "application/pdf";
 
+            Response.AddHeader("content-disposition", "attachment;filename=StaffEvaluation.pdf");
 
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+
+            StringWriter sw = new StringWriter();
+
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+
+            ViewAllHistory2.AllowPaging = false;
+
+            ViewAllHistory2.DataBind();
+
+            ViewAllHistory2.RenderControl(hw);
+
+            ViewAllHistory2.HeaderRow.Style.Add("width", "15%");
+
+            ViewAllHistory2.HeaderRow.Style.Add("font-size", "10px");
+
+            ViewAllHistory2.Style.Add("text-decoration", "none");
+
+            ViewAllHistory2.Style.Add("font-family", "Arial, Helvetica, sans-serif;");
+
+            ViewAllHistory2.Style.Add("font-size", "8px");
+
+            StringReader sr = new StringReader(sw.ToString());
+
+            Document pdfDoc = new Document(PageSize.A2, 7f, 7f, 7f, 0f);
+
+            HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+
+            PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+
+            pdfDoc.Open();
+
+            htmlparser.Parse(sr);
+            pdfDoc.Add(new Paragraph(" "));
+
+            pdfDoc.Close();
+
+            Response.Write(pdfDoc);
+
+            Response.End();
+        }
+        */
+    
+        protected void PdfBtn_Click(object sender, ImageClickEventArgs e)
+        {
+            //set the cotent type to PDF
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("content-disposition", "attachment;filename=Products.pdf");
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+
+            //hide the link button column
+            ViewAllHistory.Columns[0].Visible = false;
+
+            //Outputs server control content to a provided System.Web.UI.HtmlTextWriter
+            ViewAllHistory.RenderControl(hw);
+            ViewAllHistory.HeaderRow.Style.Add("width", "15%");
+            ViewAllHistory.HeaderRow.Style.Add("font-size", "10px");
+
+            //load the html content to the string reader
+            StringReader sr = new StringReader(sw.ToString());
+
+            //HTMLDocument
+            //Document(Rectangle pageSize, float marginLeft, float marginRight, float marginTop, float marginBottom)
+            Document document = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+
+            //iText class that allows you to convert HTML to PDF
+            HTMLWorker htmlWorker = new HTMLWorker(document);
+
+            //When this PdfWriter is added to a certain PdfDocument,
+            //the PDF representation of every Element added to this Document will be written to the outputstream.
+            PdfWriter.GetInstance(document, Response.OutputStream);
+
+            //open the document
+            document.Open();
+
+            htmlWorker.Parse(sr);
+
+            //close the document stream
+            document.Close();
+
+            //write the content to the response stream
+            Response.Write(document);
+            Response.End();
+        }
+
+        /*
+        protected void PdfBtn_Click(object sender, ImageClickEventArgs e)
+        {
+
+            
+            //link button column is excluded from the list
+            int colCount = ViewAllHistory.Columns.Count;
+
+            //Create a table
+            PdfPTable table = new PdfPTable(colCount);
+            table.HorizontalAlignment = 0;
+
+            //create an array to store column widths
+            int[] colWidths = new int[ViewAllHistory.Columns.Count];
+
+            PdfPCell cell;
+            string cellText;
+            //create the header row
+            for (int colIndex = 1; colIndex < colCount; colIndex++)
+            {  
+                //set the column width
+                colWidths[colIndex] = (int)ViewAllHistory.Columns[colIndex].ItemStyle.Width.Value;
+
+                //fetch the header text
+                cellText = Server.HtmlDecode(ViewAllHistory.HeaderRow.Cells[colIndex].Text);
+
+                //create a new cell with header text
+                cell = new PdfPCell(new Phrase(cellText));
+
+                //set the background color for the header cell
+                cell.BackgroundColor = new BaseColor(System.Drawing.ColorTranslator.FromHtml("#d1dbe0"));
+
+                //add the cell to the table. we dont need to create a row and add cells to the row
+                //since we set the column count of the table to 4, it will automatically create row for
+                //every 4 cells
+                table.AddCell(cell);
+            }
+
+            //export rows from GridView to table
+            for (int rowIndex = 0; rowIndex < ViewAllHistory.Rows.Count; rowIndex++)
+            {
+                if (ViewAllHistory.Rows[rowIndex].RowType == DataControlRowType.DataRow)
+                {
+                    for (int j = 0; j < ViewAllHistory.Columns.Count; j++)
+                    {
+                        //fetch the column value of the current row
+                        cellText = Server.HtmlDecode(ViewAllHistory.Rows[rowIndex].Cells[j].Text);
+
+                        //create a new cell with column value
+                        cell = new PdfPCell(new Phrase(cellText));
+
+                        //Set Color of Alternating row
+                        if (rowIndex % 2 != 0)
+                        {
+                            cell.BackgroundColor = new BaseColor(System.Drawing.ColorTranslator.FromHtml("#9ab2ca"));
+                        }
+                        else
+                        {
+                            cell.BackgroundColor = new BaseColor(System.Drawing.ColorTranslator.FromHtml("#f1f5f6"));
+                        }
+                        //add the cell to the table
+                        table.AddCell(cell);
+                    }
+                }
+            }
+
+            //Create the PDF Document
+            Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+
+            PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+
+            //open the stream
+            pdfDoc.Open();
+
+            //add the table to the document
+            pdfDoc.Add(table);
+
+            //close the document stream
+            pdfDoc.Close();
+
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("content-disposition", "attachment;" + "filename=Product.pdf");
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Write(pdfDoc);
+            Response.End();
+        }
+        */
+
+        protected void ViewAllHistory2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+    
 
 
 
