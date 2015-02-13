@@ -60,8 +60,15 @@
                         <asp:Label ID="lblSearchIndividual" runat="server" CssClass="label"></asp:Label>
                     </td>
                     <td>
+                        <br />
+                        --------------OR-----------------<br />
+                        <br />
                         <asp:TextBox ID="SearchTbx" runat="server" CssClass="otherstandard" onkeypress="return check(event)"
                             onMouseDown="return DisableControlKey(event)" Width="205px"></asp:TextBox>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
                     </td>
                     <td>
                         <asp:Button ID="SearchIndividualBtn" runat="server" Text="Search" OnClick="SearchIndividualBtn_Click"
@@ -89,6 +96,7 @@
                             OnClick="exportWord_Click" AlternateText="Export to word" />
                         <asp:ImageButton ID="exportExcel" runat="server" AlternateText="Export to excel"
                             CssClass="csvwordpdficon" ImageUrl="~/Image/excel.jpg" OnClick="exportExcel_Click" />
+                        <asp:ImageButton ID="PdfBtn" runat="server" AlternateText="Export to pdf" CssClass="csvwordpdficon" ImageUrl="~/Image/pdf.png" OnClick="PdfBtn_Click" />
                         <asp:Panel ID="panel1" runat="server" Height="500px" Width="100%" ScrollBars="Vertical">
                             <asp:GridView ID="ViewAllHistory" runat="server" BackColor="Black" AutoGenerateColumns="False"
                                 CssClass="otherstandard" Width="100%">
@@ -126,6 +134,8 @@
                                 <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
                                 <HeaderStyle BackColor="Black" Font-Bold="False" ForeColor="White" />
                             </asp:GridView>
+                            <br />
+                            <br />
                         </asp:Panel>
                     </td>
                 </tr>
