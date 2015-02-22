@@ -56,7 +56,7 @@ namespace Appraisal
             
 
             DoWork1();
-            HitPage();
+            //HitPage();
         }
 
         private const string DummyPageUrl =
