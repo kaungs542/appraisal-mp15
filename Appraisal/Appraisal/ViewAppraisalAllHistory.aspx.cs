@@ -2419,61 +2419,13 @@ namespace Appraisal
                 }
             }
         }
-/*
-        protected void PdfBtn_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.ContentType = "application/pdf";
 
-            Response.AddHeader("content-disposition", "attachment;filename=StaffEvaluation.pdf");
-
-            Response.Cache.SetCacheability(HttpCacheability.NoCache);
-
-            StringWriter sw = new StringWriter();
-
-            HtmlTextWriter hw = new HtmlTextWriter(sw);
-
-            ViewAllHistory2.AllowPaging = false;
-
-            ViewAllHistory2.DataBind();
-
-            ViewAllHistory2.RenderControl(hw);
-
-            ViewAllHistory2.HeaderRow.Style.Add("width", "15%");
-
-            ViewAllHistory2.HeaderRow.Style.Add("font-size", "10px");
-
-            ViewAllHistory2.Style.Add("text-decoration", "none");
-
-            ViewAllHistory2.Style.Add("font-family", "Arial, Helvetica, sans-serif;");
-
-            ViewAllHistory2.Style.Add("font-size", "8px");
-
-            StringReader sr = new StringReader(sw.ToString());
-
-            Document pdfDoc = new Document(PageSize.A2, 7f, 7f, 7f, 0f);
-
-            HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
-
-            PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
-
-            pdfDoc.Open();
-
-            htmlparser.Parse(sr);
-            pdfDoc.Add(new Paragraph(" "));
-
-            pdfDoc.Close();
-
-            Response.Write(pdfDoc);
-
-            Response.End();
-        }
-        */
     
         protected void PdfBtn_Click(object sender, ImageClickEventArgs e)
         {
             //set the cotent type to PDF
             Response.ContentType = "application/pdf";
-            Response.AddHeader("content-disposition", "attachment;filename=Products.pdf");
+            Response.AddHeader("content-disposition", "attachment;filename=StaffEvaluation.pdf");
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);
