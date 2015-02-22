@@ -197,7 +197,7 @@ namespace Appraisal.Class
             }
         }
 
-        public static string ValidateLogin(string userid, string passw)
+        public static bool ValidateLogin(string userid, string passw)
         {
             SqlConnection myconn = null;
             bool result = false;
@@ -205,21 +205,13 @@ namespace Appraisal.Class
             try
             {
                 myconn = new SqlConnection();
-                test += "1";
                 SqlCommand comm = new SqlCommand();
-                test += "2";
                 myconn.ConnectionString = connectionString;
-                test += "3";
                 myconn.Open();
-                test += "4";
                 comm.Connection = myconn;
-                test += "5";
                 comm.CommandText = "select COUNT(*) AS TOTAL from Login where UserID=@userid and Password=@passw and userid in (select userid from StaffInfo)";
-                test += "6";
                 comm.Parameters.AddWithValue("@userid", userid);
-                test += "7";
                 comm.Parameters.AddWithValue("@passw", passw);
-                test += "8";
                 SqlDataReader dr = comm.ExecuteReader();
                 if (dr.Read())
                 {
@@ -234,14 +226,14 @@ namespace Appraisal.Class
 
             catch (SqlException)
             {
-                return test;
+                return result;
             }
 
             finally
             {
                 myconn.Close();
             }
-            return test;
+            return result;
         }
 
         public static ArrayList GetAllSavedAppraisal(string userid, int page)
