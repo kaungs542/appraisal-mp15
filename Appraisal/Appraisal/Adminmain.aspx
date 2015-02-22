@@ -8,8 +8,24 @@
         <asp:Label ID="staffName" runat="server" ForeColor="#009933" CssClass="label"></asp:Label>
     </div>--%>
     <div align="center">
+        <br />
+        <asp:Panel ID="Panel1" runat="server" BackColor="#CCFF99" Width="269px">
+            <asp:Button ID="peerEvalbtn" runat="server" Text="Peer Evaluation" BackColor="#33CC33" OnClick="peerEvalbtn_Click" BorderColor="White" BorderStyle="Outset" ForeColor="White" Height="50px" style="font-size: medium; font-weight: 700" Width="267px" />
+            <br />
+            <asp:Button ID="mngAppraisalbtn" runat="server" BackColor="#33CC33" BorderColor="White" BorderStyle="Outset" ForeColor="White" Height="50px" OnClick="mngAppraisalbtn_Click" style="font-size: medium; font-weight: 700" Text="Manage Appraisal" Width="267px" />
+            <br />
+            <asp:Button ID="mngQuestionbtn" runat="server" BackColor="#33CC33" BorderColor="White" BorderStyle="Outset" ForeColor="White" Height="50px" OnClick="mngQuestionbtn_Click" style="font-size: medium; font-weight: 700" Text="Manage Question" Width="267px" />
+            <br />
+            <asp:Button ID="mngSystembtn" runat="server" BackColor="#33CC33" BorderColor="White" BorderStyle="Outset" ForeColor="White" Height="50px" OnClick="mngSystembtn_Click" style="font-size: medium; font-weight: 700" Text="Manage Staff" Width="267px" />
+            <br />
+            <asp:Button ID="mngEvalStatusbtn" runat="server" BackColor="#33CC33" BorderColor="White" BorderStyle="Outset" ForeColor="White" Height="50px" OnClick="mngEvalStatusbtn_Click" style="font-size: medium; font-weight: 700" Text="View Evaluation Status" Width="267px" />
+            <br />
+            <asp:Button ID="mngStaffPasswordbtn" runat="server" BackColor="#33CC33" BorderColor="White" BorderStyle="Outset" ForeColor="White" Height="50px" OnClick="mngStaffPasswordbtn_Click" style="font-size: medium; font-weight: 700" Text="Manage Staff Password" Width="267px" />
+            <br />
+            <asp:Button ID="mngStaffEvalReportbtn" runat="server" BackColor="#33CC33" BorderColor="White" BorderStyle="Outset" ForeColor="White" Height="50px" OnClick="mngStaffEvalReportbtn_Click" style="font-weight: 700; font-size: medium" Text="Manage Staff Evaluation Report" Width="267px" />
+        </asp:Panel>
         <asp:Panel ID="DefaultPanel" align="left" CssClass="defaultPanel" runat="server"
-            GroupingText="Peer Evaluation">
+            GroupingText="Peer Evaluation" BackColor="#CCFF99" Visible="False" Width="550px">
             <div align="center">
                 <table>
                     <tr>
@@ -30,7 +46,7 @@
             </div>
         </asp:Panel>
         <asp:Panel ID="ManageAppraisalPanel" align="left" CssClass="defaultPanel" runat="server"
-            GroupingText="Manage Appraisal">
+            GroupingText="Manage Appraisal" BackColor="#CCFF99" Visible="False" Width="550px">
             <div align="center">
                 <table>
                     <tr>
@@ -44,7 +60,7 @@
             </div>
         </asp:Panel>
         <asp:Panel ID="ManageQuestionPanel" align="left" CssClass="defaultPanel" runat="server"
-            GroupingText="Manage Question">
+            GroupingText="Manage Question" BackColor="#CCFF99" Visible="False" Width="550px">
             <div align="center">
                 <table>
                     <tr>
@@ -57,7 +73,7 @@
             </div>
         </asp:Panel>
         <asp:Panel ID="ManageSystem" align="left" CssClass="defaultPanel" runat="server"
-            GroupingText="Manage System">
+            GroupingText="Manage System" BackColor="#CCFF99" Visible="False" Width="550px">
             <div align="center">
                 <table>
                     <tr>
@@ -82,7 +98,7 @@
             </div>
         </asp:Panel>
         <asp:Panel ID="ViewAppraisalSummary" align="left" CssClass="defaultPanel" runat="server"
-            GroupingText="View Evaluation Status">
+            GroupingText="View Evaluation Status" Visible="False" BackColor="#CCFF99" Width="550px">
             <div align="center">
                 <table>
                     <tr>
@@ -107,7 +123,7 @@
             </div>
         </asp:Panel>
         <asp:Panel ID="ManageStaffPassword" align="left" CssClass="defaultPanel" runat="server"
-            GroupingText="Manage Staff Password">
+            GroupingText="Manage Staff Password" BackColor="#CCFF99" Visible="False" Width="550px">
             <div align="center">
                 <table>
                     <tr>
@@ -120,7 +136,7 @@
             </div>
         </asp:Panel>
         <asp:Panel ID="ManageAppraisalSummary" align="left" CssClass="defaultPanel" runat="server"
-            GroupingText="Manage Staff Evaluation Report">
+            GroupingText="Manage Staff Evaluation Report" BackColor="#CCFF99" Visible="False" Width="550px">
             <div align="center">
                 <table>
                     <tr>

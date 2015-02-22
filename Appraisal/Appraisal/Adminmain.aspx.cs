@@ -156,7 +156,7 @@ namespace Appraisal
                             ViewNotCompletedLbl.Text = "All evaluation for the period have been <b>completed<b>";
                             ViewNotCompletedLink.Visible = false;
                         }
-                        ManageQuestionPanel.Visible = true;
+                      //  ManageQuestionPanel.Visible = true;
                         ManageQuestionLink.Visible = true;
                         ManageQuestionsLbl.Text = "To manage question, click ";
 
@@ -220,6 +220,7 @@ namespace Appraisal
                 //ViewAppraisalLbl.Visible = false;
                 //ViewAppraisalLink.Visible = false;
             }
+           // ManageQuestionPanel.Visible = false;
         }
 
         protected void SubmitAppraisalLink_Click(object sender, EventArgs e)
@@ -337,5 +338,78 @@ namespace Appraisal
             Session["AppraisalDisplayDetailsLink"] = true;
             Response.Redirect("~/AppraisalDisplay.aspx");
         }
+
+        protected void peerEvalbtn_Click(object sender, EventArgs e)
+        {
+            if (DefaultPanel.Visible == false)
+            {
+            DefaultPanel.Visible = true;
+                   }
+            else { DefaultPanel.Visible = false; }
+
+        }
+
+        protected void mngAppraisalbtn_Click(object sender, EventArgs e)
+        {
+            
+                if (ManageAppraisalPanel.Visible == false)
+                {
+                    ManageAppraisalPanel.Visible = true;
+                }
+                else { ManageAppraisalPanel.Visible = false; }
+
+            
+     
+        }
+
+        protected void mngQuestionbtn_Click(object sender, EventArgs e)
+        {
+            if (ManageQuestionPanel.Visible == false)
+            {
+                ManageQuestionPanel.Visible = true;
+            }
+            else { ManageQuestionPanel.Visible = false; }
+
+        }
+
+        protected void mngSystembtn_Click(object sender, EventArgs e)
+        {
+            if (ManageSystem.Visible == false)
+            {
+                ManageSystem.Visible = true;
+            }
+            else { ManageSystem.Visible = false; }
+
+        }
+
+        protected void mngEvalStatusbtn_Click(object sender, EventArgs e)
+        {
+            if (ViewAppraisalSummary.Visible == false)
+            {
+                ViewAppraisalSummary.Visible = true;
+            }
+            else { ViewAppraisalSummary.Visible = false; }
+        }
+
+        protected void mngStaffPasswordbtn_Click(object sender, EventArgs e)
+        {
+            if (ManageStaffPassword.Visible == false)
+            {
+                ManageStaffPassword.Visible = true;
+            }
+            else { ManageStaffPassword.Visible = false; }
+        }
+
+        protected void mngStaffEvalReportbtn_Click(object sender, EventArgs e)
+        {
+            if (ManageAppraisalSummary.Visible == false)
+            {
+                ManageAppraisalSummary.Visible = true;
+            }
+            else { ManageAppraisalSummary.Visible = false; }
+        }
+
+        
+
     }
 }
