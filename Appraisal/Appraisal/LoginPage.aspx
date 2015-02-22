@@ -59,6 +59,13 @@
     }
 
 </script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="WaterMark.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $("[id*=staffnumber], [id*=password]").WaterMark();
+    });
+</script>
 <head runat="server">
     <title>Online 360° Leadership System</title>
     <style type="text/css">
@@ -82,6 +89,60 @@
         {
             width: 213px;
         }
+    h1 {
+margin-bottom: 10px;
+}
+h1 { font-size: 1em; }
+strong {
+font-weight: bold;
+}
+p {
+margin-bottom: 10px;
+}
+form fieldset input[type=text] {
+background-color: #e5e5e5;
+border: none;
+border-radius: 3px;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+color: #5a5656;
+font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+font-size: 14px;
+height: 50px;
+outline: none;
+padding: 0px 10px;
+width: 280px;
+-webkit-appearance:none;
+}
+input[type=password] {
+background-color: #e5e5e5;
+border: none;
+border-radius: 3px;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+color: #5a5656;
+font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+font-size: 14px;
+height: 50px;
+outline: none;
+padding: 0px 10px;
+width: 280px;
+-webkit-appearance:none;
+}
+form fieldset input[type="submit"] {
+background-color: #008dde;
+border: none;
+border-radius: 3px;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+color: #f4f4f4;
+cursor: pointer;
+font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+height: 50px;
+text-transform: uppercase;
+width: 300px;
+-webkit-appearance:none;
+}
     </style>
     <script type="text/javascript">
         window.history.forward(1); 
@@ -117,73 +178,42 @@
                     <table>
                         <tr>
                             <td>
-                                <asp:Panel ID="Panel1" runat="server" BackColor="#FFFFCC" Style="font-family: Arial;"
-                                    BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" Height="190px">
-                                    <table style="width: 100%; height: 200px;">
-                                        <tr>
-                                            <td>
-                                                <table style="width: 100%;">
-                                                    <tr>
-                                                        <td class="style40">
-                                                            <asp:Label ID="adminstafflbl" runat="server" CssClass="label" Style="font-weight: 700"
-                                                                Text="User ID:"></asp:Label>
-                                                        </td>
-                                                        <td align="left" class="style41">
-                                                            <asp:TextBox ID="staffnumber" runat="server" Width="165px" onkeypress="return check(event)"
-                                                                onMouseDown="return DisableControlKey(event)" CssClass="otherstandard"></asp:TextBox>
-                                                        </td>
-                                                    </tr>
-                                                    <tr align="left">
-                                                        <td class="style40">
-                                                            &nbsp;
-                                                        </td>
-                                                        <td class="style41">
+<div id="login">
+<h1><strong>Welcome from </strong><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif">ASC Online</span><span lang="EN-GB" style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;
+mso-ansi-language:EN-GB"> 360</span><span class="st"><span style="font-size:13.5pt;
+font-family:&quot;Times New Roman&quot;,serif;font-weight:normal;mso-bidi-font-weight:
+bold">°</span><span style="font-size:13.5pt;font-family:
+&quot;Times New Roman&quot;,serif;mso-ansi-language:EN-GB;font-weight:normal;mso-bidi-font-weight:
+bold"> </span><span lang="EN-GB" style="font-size:12.0pt;
+font-family:&quot;Times New Roman&quot;,serif;mso-ansi-language:EN-GB;mso-bidi-font-weight:
+bold">Leadership</span><span lang="EN-GB" style="font-size:
+13.5pt;font-family:&quot;Times New Roman&quot;,serif;mso-ansi-language:EN-GB;font-weight:
+normal;mso-bidi-font-weight:bold"> </span></span><span style="font-size:12.0pt;
+font-family:&quot;Times New Roman&quot;,serif">System<o:p></o:p></span></h1>
+    <h1>Please login to continue.</h1>
+<fieldset>
+<p>
+    <asp:TextBox ID="staffnumber" runat="server" ToolTip="Enter User ID" Height="50px" Width="280px"></asp:TextBox>
+    </p>
+    <p>
                                                             <asp:RequiredFieldValidator ID="adminstaffvalidator0" runat="server" ControlToValidate="staffnumber"
                                                                 Display="Dynamic" ErrorMessage="Required" ForeColor="Red"></asp:RequiredFieldValidator>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <asp:Label ID="passwordlbl0" runat="server" Style="font-weight: 700" Text="Password:"
-                                                                CssClass="label"></asp:Label>
-                                                        </td>
-                                                        <td align="left" class="style41">
-                                                            <asp:TextBox ID="password" runat="server" TextMode="Password" Width="165px" Wrap="False"
-                                                                onKeyDown="limitText(this,15);" onKeyUp="limitText(this,15);" CssClass="otherstandard"></asp:TextBox>
-                                                        </td>
-                                                    </tr>
-                                                    <tr align="left">
-                                                        <td>
-                                                            &nbsp;
-                                                        </td>
-                                                        <td class="style41">
+    </p>
+<p>
+    <asp:TextBox ID="password" runat="server" TextMode="Password" ToolTip="Enter Password" Height="50px" Width="280px"></asp:TextBox>
+    </p>
+    <p>
                                                             <asp:RequiredFieldValidator ID="passwordvalidator0" runat="server" ControlToValidate="password"
                                                                 Display="Dynamic" ErrorMessage="Required" ForeColor="Red"></asp:RequiredFieldValidator>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            &nbsp;
-                                                        </td>
-                                                        <td class="style41">
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            <asp:Button ID="LoginBtn" runat="server" CssClass="LoginButton" OnClick="login_button_Click"
-                                                                Text="Login" />
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            &nbsp;
-                                                        </td>
-                                                        <td align="left" class="style41">
+    </p>
+<p>
+    <asp:Button ID="LoginBtn" runat="server" Text="Login" BackColor="#33CC33" OnClick="login_button_Click" />
+    </p>
+    <p>
                                                             <asp:Label ID="messagelbl" runat="server" ForeColor="Red" Style="text-align: left"></asp:Label>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </asp:Panel>
+    </p>
+</fieldset>
+    </div> 
                             </td>
                         </tr>
                     </table>
