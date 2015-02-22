@@ -39,7 +39,7 @@ namespace Appraisal
                 }
                 else
                 {
-                    //messagelbl.Text = "Invalid username or password.";
+                    messagelbl.Text = "Invalid username or password.";
                 }
             }
         }
