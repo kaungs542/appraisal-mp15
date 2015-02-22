@@ -166,9 +166,6 @@ namespace Appraisal
         {
             try
             {
-                section = "PHS";
-                questionID = 1;
- 
                 MultiView1.Visible = true;
 
                 Chart1.Series.Clear();
@@ -287,9 +284,12 @@ namespace Appraisal
 
         protected void Display_Click(object sender, EventArgs e)
         {
-            string sectionid = "PHS";
-            int id = 1;
-            populateChartFunctionViaSection(sectionid, id);
+            string name = Session["LoginName"].ToString();
+            staffinfo stf = dbmanager.GetLoginUserId(name);
+
+            string sectionid = stf.Section;
+            int questionID = ddlSelectQuestion.SelectedIndex;
+            populateChartFunctionViaSection(sectionid, questionID);
         }
     }
 }
