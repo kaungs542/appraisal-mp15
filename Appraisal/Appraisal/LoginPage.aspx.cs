@@ -29,9 +29,9 @@ namespace Appraisal
             {
                 normalhashpassw = FormsAuthentication.HashPasswordForStoringInConfigFile(passw, "sha1");
 
-                string result = dbmanager.ValidateLogin(staffnum, normalhashpassw);
-                messagelbl.Text = result;
-                if (result == "12345678")
+                bool result = dbmanager.ValidateLogin(staffnum, normalhashpassw);
+               
+                if (result == true)
                 {
                     FormsAuthentication.SetAuthCookie(staffnum, false);
                     Session["LoginName"] = staffnum;
