@@ -209,7 +209,7 @@
     <br />
     <div align="right">
         <asp:Label ID="WelcomeLbl" runat="server" Text="Welcome: " CssClass="label"></asp:Label>
-        <asp:Label ID="staffName" runat="server" ForeColor="#009933" CssClass="label"></asp:Label>
+        <asp:Label ID="staffName" runat="server" ForeColor="Fuchsia" CssClass="label" BackColor="White"></asp:Label>
     </div>
     <table width="100%">
         <tr>
