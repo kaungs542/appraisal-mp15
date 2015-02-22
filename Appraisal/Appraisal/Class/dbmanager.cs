@@ -1953,6 +1953,42 @@ namespace Appraisal.Class
             return listofCompleted;
         }
 
+        public static ArrayList GetDistinctNameUidCompletedAppraisal2(string function)
+        {
+            SqlConnection myconn = null;
+            //staffappraisal stfapp = null;
+            ArrayList listofCompleted = new ArrayList();
+            try
+            {
+                myconn = new SqlConnection();
+                SqlCommand comm = new SqlCommand();
+                myconn.ConnectionString = connectionString;
+                myconn.Open();
+                comm.Connection = myconn;
+                comm.CommandText = "select UserID from StaffInfo where Functions=@funct and UserID NOT IN (select UserID from StaffAppraisal where AppraisalDate >= (select StartDate from SystemDate) and AppraisalDate <= (select EndDate from SystemDate)) order by Name";
+                comm.Parameters.AddWithValue("@funct", function);
+
+                SqlDataReader dr = comm.ExecuteReader();
+                while (dr.Read())
+                {
+                    string uid = dr["UserID"].ToString();
+                    listofCompleted.Add(uid);
+                }
+                dr.Close();
+            }
+
+            catch (SqlException)
+            {
+                return listofCompleted;
+            }
+
+            finally
+            {
+                myconn.Close();
+            }
+            return listofCompleted;
+        }
+
         public static ArrayList GetCountUserIDAppraisalFunction(string uid, string function, int questionid, DateTime date)
         {
             SqlConnection myconn = null;

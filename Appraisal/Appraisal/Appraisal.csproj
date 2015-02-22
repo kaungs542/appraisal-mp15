@@ -98,6 +98,7 @@
     <Content Include="ManageUser.aspx" />
     <Content Include="ManageUserAdd.aspx" />
     <Content Include="RateInfo.aspx" />
+    <Content Include="Reminder.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Staffmain.aspx" />
     <Content Include="SubmitAppraisal.aspx" />
@@ -518,6 +519,13 @@
     </Compile>
     <Compile Include="RateInfo.aspx.designer.cs">
       <DependentUpon>RateInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reminder.aspx.cs">
+      <DependentUpon>Reminder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reminder.aspx.designer.cs">
+      <DependentUpon>Reminder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Staffmain.aspx.cs">
       <DependentUpon>Staffmain.aspx</DependentUpon>
