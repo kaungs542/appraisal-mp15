@@ -22,8 +22,9 @@ namespace Appraisal.Class
                 smtp.Send(ourMessage);      // Send your mail.
                 return true;                // IF Mail sended Successfully
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 return false;               // Send error
             }
         }
