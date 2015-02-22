@@ -29,6 +29,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div style="padding-left: 10px">
         <asp:ImageButton ID="exportWord" runat="server" AlternateText="Export to word" CssClass="csvwordpdficon"
-            ImageUrl="~/Image/word.png" OnClick="exportWord_Click" /></div>
+            ImageUrl="~/Image/word.png" OnClick="exportWord_Click" />&nbsp;&nbsp;
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Send the email" />
+    </div>
     <asp:Label ID="lblStaffSummary" runat="server" CssClass="label"></asp:Label>
 </asp:Content>

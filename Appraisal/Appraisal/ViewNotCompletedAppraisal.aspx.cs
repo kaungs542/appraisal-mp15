@@ -119,5 +119,10 @@ namespace Appraisal
             strScript += "</script>";
             this.ClientScript.RegisterStartupScript(this.GetType(), "Startup", strScript);
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Reminder.aspx");
+        }
     }
 }
