@@ -88,9 +88,9 @@ namespace Appraisal
             if (st != null)
             {
                 TimeSpan span = st.Enddate.Subtract(today);
-                //result = (int)span.Days;
+                result = (int)span.Days;
 
-                result = 2;
+                //result = 2;
                 if ((result == 2) || (result == 7))
                 {
                     dbmanager.SendEmailToNotCompleted();
