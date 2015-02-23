@@ -1996,7 +1996,7 @@ namespace Appraisal.Class
                 //{
 
    //                 string username = stfapp.Uid;
-                    bool sentemail = email.SendMail("You have not submitted your peer evalution yet." + Environment.NewLine + Environment.NewLine + "Your need to submit before deadline and deadline is : "+ st.Enddate +"" + Environment.NewLine + Environment.NewLine + "Thank you for using 360 staff feedback system.", "1306543H@student.tp.edu.sg", "360° Leadership System New Password");
+                    bool sentemail = email.SendMail("testYou have not submitted your peer evalution yet." + Environment.NewLine + Environment.NewLine + "Your need to submit before deadline and deadline is : "+ st.Enddate +"" + Environment.NewLine + Environment.NewLine + "Thank you for using 360 staff feedback system.", "1306543H@student.tp.edu.sg", "360° Leadership System New Password");
 
      //           }                
        //     }
