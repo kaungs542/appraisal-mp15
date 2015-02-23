@@ -230,7 +230,7 @@ width: 300px;
     </p>
     <p>
 
-        <asp:LinkButton ID="LinkButton1" runat="server" Font-Names="Verdana" ForeColor="#009933" OnClientClick="return confirm('The webpage you are viewing is trying to logout. Do you want to continue?');">Forget Password</asp:LinkButton>
+        <asp:LinkButton ID="LinkButton1" runat="server" Font-Names="Verdana" ForeColor="#009933" OnClientClick="return confirm('please call admin for new password. call admin at ****');">Forget Password</asp:LinkButton>
 
     </p>
 <p>

@@ -117,7 +117,7 @@
                         </td>
                         <td>
                             <asp:Button ID="SaveLtrBtn" runat="server" OnClick="SaveLtrBtn_Click" Text="Save draft"
-                                CssClass="buttonquestions" OnClientClick="return confirm('The webpage you are viewing is trying to logout. Do you want to continue?');" />
+                                CssClass="buttonquestions" OnClientClick="return confirm('u have not submitted.  To submit please click next.  Are u sure u want to save?');" />
                             <asp:Button ID="NextBtn" runat="server" CssClass="standardButtons" OnClick="NextBtn_Click"
                                 Text="Next" />
                             <br />
