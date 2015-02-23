@@ -49,6 +49,92 @@ namespace Appraisal.Class
             }
             return result;
         }
+        public static double GetStrDevation(string uid, DateTime dates)
+        {
+            SqlConnection myconn = null;
+            double appresult = 0.0;
+            try
+            {
+                myconn = new SqlConnection();
+                SqlCommand comm = new SqlCommand();
+                myconn.ConnectionString = connectionString;
+                myconn.Open();
+                comm.Connection = myconn;
+                comm.CommandText = "select STDEV(AppraisalResult) as STDEV from StaffAppraisal where AppraisalStaffUserID=@uid and SystemEndDate=@dates and AppraisalResult != 0.0";
+                comm.Parameters.AddWithValue("@uid", uid);
+                comm.Parameters.AddWithValue("@dates", dates);
+
+                SqlDataReader dr = comm.ExecuteReader();
+                if (dr.Read())
+                {
+                    if (dr["STDEV"] != null)
+                    {
+                        try
+                        {
+                            appresult = Math.Round((Convert.ToDouble(dr["STDEV"])), 3);
+                        }
+                        catch
+                        {
+                            appresult = 0.0;
+                        }
+                    }
+                }
+                dr.Close();
+            }
+
+            catch (SqlException)
+            {
+                return appresult;
+            }
+
+            finally
+            {
+                myconn.Close();
+            }
+            return appresult;
+        }
+
+        public static ArrayList GetStaffByName(string Name)
+        {
+            SqlConnection myconn = null;
+            staffinfo staff = null;
+            ArrayList listofstaff = new ArrayList();
+            try
+            {
+                myconn = new SqlConnection();
+                SqlCommand comm = new SqlCommand();
+                myconn.ConnectionString = connectionString;
+                myconn.Open();
+                comm.Connection = myconn;
+                comm.CommandText = "select * from StaffInfo  where Name like '%" + Name + "%' order by Name";
+
+                SqlDataReader dr = comm.ExecuteReader();
+                while (dr.Read())
+                {
+                    string staffname = dr["Name"].ToString();
+                    string designation = dr["Designation"].ToString();
+                    string section = dr["Section"].ToString();
+                    string function = dr["Functions"].ToString();
+                    string uid = dr["UserID"].ToString();
+                    string role = dr["Role"].ToString();
+
+                    staff = new staffinfo(staffname, designation, section, function, uid, role);
+                    listofstaff.Add(staff);
+                }
+                dr.Close();
+            }
+            catch (SqlException)
+            {
+                return listofstaff;
+            }
+
+            finally
+            {
+                myconn.Close();
+            }
+            return listofstaff;
+        }
+
 
         //Login Module
         public static bool CheckValidCurrentPassword(string userid, string passw)

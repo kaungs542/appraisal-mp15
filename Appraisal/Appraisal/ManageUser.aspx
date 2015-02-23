@@ -3,22 +3,61 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+  <script type="text/javascript">
+      function printGrid() {
+          var gridData = document.getElementById('<%= ManageStaffGrid.ClientID %>');
+            var windowUrl = 'about:blank';
+            //set print document name for gridview
+            var uniqueName = new Date();
+            var windowName = 'Print_' + uniqueName.getTime();
+
+            var prtWindow = window.open(windowUrl, windowName,
+            'left=100,top=100,right=100,bottom=100,width=700,height=500');
+            prtWindow.document.write('<html><head></head>');
+            prtWindow.document.write('<body style="background:none !important">');
+            prtWindow.document.write(gridData.outerHTML);
+            prtWindow.document.write('</body></html>');
+            prtWindow.document.close();
+            prtWindow.focus();
+            prtWindow.print();
+            prtWindow.close();
+        }
+</script>
     <div style="text-align: center; height: 21px;">
         <asp:Label ID="ManageSystemLbl" runat="server" CssClass="label" Text="Manage System User"
             Font-Bold="True"></asp:Label>
         <br />
         <br />
     </div>
+    <table>
+         <tr>
+            <td class="auto-style2"></td>
+            <td class="auto-style3" style="text-align: center">                
+             <asp:Label ID="Label1" runat="server"  CssClass="label" Text="Name"></asp:Label>&nbsp;:</td>
+             <td class="auto-style4">
+                 &nbsp;&nbsp;
+                 <asp:TextBox ID="txtSearch" runat="server" CssClass="label" Height="21px" Width="209px"></asp:TextBox>
+                 </td>
+             <td class="auto-style5">
+                 <asp:Button ID="btnSearch" CssClass="label" runat="server" Text="Search" OnClick="btnSearch_Click" />
+             </td>             
+            </tr>        
+    </table>
     <table width="100%">
         <tr>
-            <td>
+            <td class="auto-style1">
             </td>
-            <td>
+            <td class="auto-style2">
                 <%--<asp:LinkButton ID="viewAllBtn" runat="server" OnClick="viewAllBtn_Click" CssClass="label"></asp:LinkButton>--%>
                 <%--<asp:LinkButton ID="lbViewAll" runat="server" onclick="lbViewAll_Click" CssClass="label"></asp:LinkButton>--%>
                 <asp:Button ID="lbViewAll" runat="server" OnClick="lbViewAll_Click" Text="View All" CssClass="label"/>
             </td>
-            <td align="right">
+            <td style="margin-left: 40px">
+                  &nbsp;&nbsp;
+                <asp:Button ID="btnPrintFromCodeBehind" CssClass="label" runat="server"
+                Text="Print" OnClick="btnPrintFromCodeBehind_Click" Height="30px" Width="71px" />
+            </td>
+            <td align="right" class="auto-style1">
                 <%--<asp:LinkButton ID="AddUser" runat="server" OnClick="AddUser_Click" CssClass="label">Add new system user</asp:LinkButton>--%>
                 <%--<asp:LinkButton ID="lbAddUser" runat="server" OnClick="AddUser_Click" CssClass="label">Add new user</asp:LinkButton>--%>
                 <asp:Button ID="lbAddUser" runat="server" Text="Add new user" OnClick="AddUser_Click" CssClass="label"/>
@@ -498,3 +537,17 @@
     <br />
     <br />
 </asp:Content>
+<asp:Content ID="Content2" runat="server" contentplaceholderid="HeadContent">
+    <style type="text/css">
+        .auto-style1
+        {
+            height: 40px;
+        }
+        .auto-style2
+        {
+            height: 40px;
+            width: 160px;
+        }
+    </style>
+</asp:Content>
+
