@@ -92,10 +92,13 @@
     h1 {
 margin-bottom: 10px;
 }
-h1 { font-size: 1em; }
+h1 { font-size: 1em;
+            color: #009933;
+        }
 strong {
 font-weight: bold;
-}
+            color: #009933;
+        }
 p {
 margin-bottom: 10px;
 }
@@ -143,6 +146,43 @@ text-transform: uppercase;
 width: 300px;
 -webkit-appearance:none;
 }
+        .newStyle1
+        {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .newStyle2
+        {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .newStyle3
+        {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .newStyle4
+        {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .newStyle5
+        {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .newStyle6
+        {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .newStyle7
+        {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .newStyle8
+        {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: #009933;
+        }
+        .auto-style1
+        {
+            color: #003300;
+        }
     </style>
     <script type="text/javascript">
         window.history.forward(1); 
@@ -151,26 +191,19 @@ width: 300px;
 <body style="background-image: url(./Image/bg1.jpg);">
     <form id="form1" runat="server">
     <div align="center">
-        <div align="center">
-            <table>
-                <tr>
-                    <td>
-                        <asp:Image ID="Image1" runat="server" ImageUrl="~/Image/tplogo.gif" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        &nbsp;
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label ID="Label6" runat="server" Style="font-size: large; font-weight: 700;"
-                            Text="School of Applied Science" CssClass="label"></asp:Label>
-                    </td>
-                </tr>
-            </table>
-        </div>
+    <div align="center">
+        <asp:Image ID="Image1" runat="server" Height="116px" ImageUrl="~/Image/sg_tp.gif" Width="224px" />
+        <b style="font-family: Arial; font-weight: bold; font-size: medium;">
+        <br />
+        <br />
+        </b>
+        <span style="font-family: Arial; font-size: medium;"><span class="auto-style1"><strong style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: large; color: #009933;">SCHOOL OF APPLIED
+            SCIENCE<br />
+        </strong></span></div>
+        </span>
+    <div align="center">
+        <b style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold; font-size: large; color: #009933;">Online 360<span
+            class="st">°</span> Leadership System</b></div>
         <br />
         <table>
             <tr>
@@ -179,17 +212,6 @@ width: 300px;
                         <tr>
                             <td>
 <div id="login">
-<h1><strong>Welcome from </strong><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif">ASC Online</span><span lang="EN-GB" style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;
-mso-ansi-language:EN-GB"> 360</span><span class="st"><span style="font-size:13.5pt;
-font-family:&quot;Times New Roman&quot;,serif;font-weight:normal;mso-bidi-font-weight:
-bold">°</span><span style="font-size:13.5pt;font-family:
-&quot;Times New Roman&quot;,serif;mso-ansi-language:EN-GB;font-weight:normal;mso-bidi-font-weight:
-bold"> </span><span lang="EN-GB" style="font-size:12.0pt;
-font-family:&quot;Times New Roman&quot;,serif;mso-ansi-language:EN-GB;mso-bidi-font-weight:
-bold">Leadership</span><span lang="EN-GB" style="font-size:
-13.5pt;font-family:&quot;Times New Roman&quot;,serif;mso-ansi-language:EN-GB;font-weight:
-normal;mso-bidi-font-weight:bold"> </span></span><span style="font-size:12.0pt;
-font-family:&quot;Times New Roman&quot;,serif">System<o:p></o:p></span></h1>
     <h1>Please login to continue.</h1>
 <fieldset>
 <p>
@@ -225,8 +247,8 @@ font-family:&quot;Times New Roman&quot;,serif">System<o:p></o:p></span></h1>
                 </td>
             </tr>
             <tr>
-                <td align="left" style="font-family: Arial; font-size: medium">
-                    <b>For Staff:</b><br />
+                <td align="left" style="font-family: Arial; font-size: medium; color: #009933;">
+                    <b style="color: #009933">For Staff:</b><br />
                     Please use your email id for login.
                 </td>
             </tr>

@@ -78,6 +78,7 @@
     <Content Include="dll\itextsharp.dll" />
     <Content Include="ForgetPassword.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Image\ASClogo.png" />
     <Content Include="Image\bg1.jpg" />
     <Content Include="Image\calendar-schedulehs.jpg" />
     <Content Include="Image\csv.png" />
@@ -86,8 +87,10 @@
     <Content Include="Image\excel.jpg" />
     <Content Include="Image\pdf.png" />
     <Content Include="Image\save.png" />
+    <Content Include="Image\sg_tp.gif" />
     <Content Include="Image\swap.jpg" />
     <Content Include="Image\tplogo.gif" />
+    <Content Include="Image\tpLogo.JPG" />
     <Content Include="Image\word.png" />
     <Content Include="ImportExportStaffList.aspx" />
     <Content Include="LoginPage.aspx" />
