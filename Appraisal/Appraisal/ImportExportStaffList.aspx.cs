@@ -154,6 +154,7 @@ namespace Appraisal
                             emptyvalue++;
                         }
                     }
+                    invalidrelation = 1;
                     if (invalidrelation > 0)
                     {
                         listofStaff.Clear();
