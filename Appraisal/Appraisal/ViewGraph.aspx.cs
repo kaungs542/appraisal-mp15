@@ -36,15 +36,10 @@ namespace Appraisal
                         bool checkifappraisalsec = dbmanager.CountAllAppraisal();
                         if (checkifappraisalsec == true)
                         {
-                            //if (role == "Admin")
-                            //{
-                            //    BindDropDownListAdmin();
-                            //}
                             if (role == "Officer")
                             {
                                 BindDropDownListOfficer();
                             }
-                            //LegendMessage();
                         }
                         else
                         {
@@ -65,91 +60,23 @@ namespace Appraisal
             {
                 string uid = Session["UserID"].ToString();
                 staffinfo stfinfo = dbmanager.GetStaffDetailsViaUid(uid);
-                //if director
-                //if (stfinfo.Section == "ALL")
-                //{
-                    //ArrayList listofsection = RemoveDups(dbmanager.GetAllSectionnByLimit());
-                    //ArrayList listoffunction = dbmanager.GetAllFunctionByLimit();
-                    ArrayList listofquestion = dbmanager.GetAllQuestionList();
-
-                    //ArrayList listofselectfunction = new ArrayList();
-                    //ArrayList listofselectsection = new ArrayList();
+                ArrayList listofquestion = dbmanager.GetAllQuestionList();                    
 
                     if (listofquestion.Count > 0)
                     {
-                        //listofsection.Insert(0, "<----Please select one---->");
-                        //listofsection.Insert(1, "<--------ASC School-------->");
-                        //ddlSelectSection.DataSource = listofsection;
-                        //ddlSelectSection.DataBind();
-                        //for ddlselectQuestion
                         listofquestion.Insert(0, "<--------All question(s)------->");
                         ddlSelectQuestion.DataSource = listofquestion;
                         ddlSelectQuestion.DataBind();
-
-                        /*listofselectfunction.Insert(0, "<--------Autoupdate-------->");
-                        ddlFilterFunction.DataSource = listofselectfunction;
-                        ddlFilterFunction.DataBind();
-                        listoffunction.Insert(0, "<----Please select one---->");
-                        listoffunction.Insert(1, "<--------ASC School-------->");
-                        ddlSelectFunction.DataSource = listoffunction;
-                        ddlSelectFunction.DataBind();
-                        listofselectsection.Insert(0, "<--------Autoupdate-------->");
-                        ddlFilterBySection.DataSource = listofselectsection;
-                        ddlFilterBySection.DataBind();
-                        SearchPanelFunctionViaSection.Visible = false;*/
                     }
                     else
                     {
                         MessageBoxShow("Error reading data from database.");
                     }
-                //}
-                /*else
-                {
-                    ArrayList listofsection = new ArrayList();
-                    string[] arraysection = stfinfo.Section.Split(',');
-                    if (arraysection.LongLength > 0)
-                    {
-                        foreach (string sect in arraysection)
-                        {
-                            listofsection.Add(sect);
-                        }
-                    }
-                    ArrayList listoffunction = RemoveDups(dbmanager.GetAllFunctionByLimitViaOfficer(stfinfo.Section));
-                    ArrayList listofquestion = dbmanager.GetAllQuestionList();
-
-                    ArrayList listofselectfunction = new ArrayList();
-                    ArrayList listofselectsection = new ArrayList();
-
-                    if (listoffunction.Count > 0 && listofsection.Count > 0 && listofquestion.Count > 0)
-                    {
-                        listofsection.Insert(0, "<----Please select one---->");
-                        ddlSelectSection.DataSource = listofsection;
-                        ddlSelectSection.DataBind();
-                        // for ddlselectQuestion
-                        listofquestion.Insert(0, "<--------All question(s)------->");
-                        ddlSelectQuestion.DataSource = listofquestion;
-                        ddlSelectQuestion.DataBind();
-
-                        listofselectfunction.Insert(0, "<--------Autoupdate-------->");
-                        ddlFilterFunction.DataSource = listofselectfunction;
-                        ddlFilterFunction.DataBind();
-                        listoffunction.Insert(0, "<----Please select one---->");
-                        ddlSelectFunction.DataSource = listoffunction;
-                        ddlSelectFunction.DataBind();
-                        listofselectsection.Insert(0, "<--------Autoupdate-------->");
-                        ddlFilterBySection.DataSource = listofselectsection;
-                        ddlFilterBySection.DataBind();
-                        SearchPanelFunctionViaSection.Visible = false;
-                    }
-                    else
-                    {
-                        MessageBoxShow("Error reading data from database.");
-                    }
-                }*/
+                
             }
-            catch
+            catch(Exception ex)
             {
-
+                Console.WriteLine(ex.ToString());
             }
         }
 
@@ -178,15 +105,12 @@ namespace Appraisal
                 table.Columns.Add("Date");
 
                 ArrayList listofdates = dbmanager.GetListofDatesViaSection(section);
-                //string[] functionsplit = functionlist.Split(',');
 
                 ArrayList listofquestion = dbmanager.GetAllQuestion();
                 ArrayList listofstaff = dbmanager.GetAllStaffDetails();
 
                 foreach (DateTime date in listofdates)
                 {
-                    //foreach (string function in functionsplit)
-                    //{
                         double result = 0.0;
                         double staffAverage = 0.0;
                         double staffAverageResult = 0.0;
@@ -214,31 +138,12 @@ namespace Appraisal
                                     count++;
                                 }
                                 string monthname = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(date.Month);
-                                table.Rows.Add(staff.Name, staffAverage, monthname.Substring(0, 3) + "/" + date.Year.ToString().Substring(2, 2));
-                                //table.Rows.Add(staff.Name, staffAverage);
-                            }
-                            
-
+                                table.Rows.Add(staff.Name, staffAverageResult, monthname.Substring(0, 3) + "/" + date.Year.ToString().Substring(2, 2));
+                           }
                             result = 0.0;
                             staffAverage = 0.0;
                             staffAverageResult = 0.0;
                         }
-                        //try
-                        //{
-                        //    result = Math.Round((staffAverageResult / count), 1);
-                        //}
-                        //catch
-                        //{
-                        //    result = 0.0;
-                        //}
-
-                        //string monthname = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(date.Month);
-                        //table.Rows.Add(function, result);
-
-                        //result = 0.0;
-                        //staffAverage = 0.0;
-                        //staffAverageResult = 0.0;
-                    //}
                 }
 
                 bool display = false;
