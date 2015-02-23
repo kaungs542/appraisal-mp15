@@ -422,6 +422,25 @@ namespace Appraisal
                 }
             }
         }
+
+        protected void btnPrintFromCodeBehind_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "printGrid", "printGrid();", true);
+            }
+            catch { }
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            ArrayList listofStaff = dbmanager.GetStaffByName(txtSearch.Text);
+            if (listofStaff.Count != 0)
+            {
+                ManageStaffGrid.DataSource = listofStaff;
+                ManageStaffGrid.DataBind();
+            }
+        }
       
 
     }

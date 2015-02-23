@@ -733,12 +733,13 @@ namespace Appraisal
                     DateTime toshortdate = ((DateTime)listofhistorydates[i]);
 
                     string monthname = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(toshortdate.Month);
-                    dt2.Columns.Add(new DataColumn(monthname.Substring(0, 3) + "/" + toshortdate.Year.ToString().Substring(2, 2), typeof(double)));
+                    dt2.Columns.Add(new DataColumn(monthname.Substring(0, 3) + "/" + toshortdate.Year.ToString().Substring(2, 2), typeof(string)));
                 }
 
                 int index = 0;
                 double result = 0.0;
                 dr2 = dt2.NewRow();
+
                 foreach (DateTime date in listofhistorydates)
                 {
                     foreach (Question qn in listofquestion)
@@ -748,9 +749,15 @@ namespace Appraisal
                     int countquestion = dbmanager.GetTotalCountQuestionInPeriod(userid, date);
                     result = Math.Round((result / countquestion), 1);
                     DateTime toshortdate = ((DateTime)listofhistorydates[index]);
-
                     string monthname = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(toshortdate.Month);
-                    dr2[monthname.Substring(0, 3) + "/" + toshortdate.Year.ToString().Substring(2, 2)] = result;
+                    dr2[monthname.Substring(0, 3) + "/" + toshortdate.Year.ToString().Substring(2, 2)] = " Average :" + Convert.ToString(result);
+                    dt2.Rows.Add(dr2);
+
+                    //added by kaung san
+                    dr2 = dt2.NewRow();
+                    double strdev = dbmanager.GetStrDevation(userid, date);
+                    dr2[monthname.Substring(0, 3) + "/" + toshortdate.Year.ToString().Substring(2, 2)] = "Standard Deviation : " + Convert.ToString(strdev);
+
                     index++;
                     result = 0.0;
                 }
