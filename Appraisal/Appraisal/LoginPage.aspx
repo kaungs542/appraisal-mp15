@@ -228,6 +228,11 @@ width: 300px;
                                                             <asp:RequiredFieldValidator ID="passwordvalidator0" runat="server" ControlToValidate="password"
                                                                 Display="Dynamic" ErrorMessage="Required" ForeColor="Red"></asp:RequiredFieldValidator>
     </p>
+    <p>
+
+        <asp:LinkButton ID="LinkButton1" runat="server" Font-Names="Verdana" ForeColor="#009933" OnClientClick="return confirm('The webpage you are viewing is trying to logout. Do you want to continue?');">Forget Password</asp:LinkButton>
+
+    </p>
 <p>
     <asp:Button ID="LoginBtn" runat="server" Text="Login" BackColor="#33CC33" OnClick="login_button_Click" />
     </p>
